@@ -9,7 +9,19 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
 
+
 / {
+
+      behaviors {
+      td_E: tap_dance_E {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_E";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp E>, <&kp R>, <&kp T>;
+        };
+   };
+
         keymap {
                 compatible = "zmk,keymap";
 
@@ -20,10 +32,10 @@
 // | SHFT |  W  |  X  |  C  |  V  |  B  |                                     |  N  |  ,   |  ;  |  :  |  !  | ESC  |
 //                    | GUI | LWR | SPC |                                     | ENT | RSE  | ALT |
                         bindings = <
-   &kp TAB   &kp A      &kp Z       &kp E          &kp R       &kp T          &kp Y       &kp U        &kp I          &kp O       &kp P      &kp BSPC
+   &kp TAB   &kp A      &kp Z       &td_E          &kp R       &kp T          &kp Y       &kp U        &kp I          &kp O       &kp P      &kp BSPC
    &kp LCTRL &mt LGUI Q &mt LALT S  &mt LSHIFT D   &mt LCTRL F &kp G          &kp H       &mt RCTRL J  &mt RSHIFT K   &mt RALT L  &mt RGUI M &kp SQT
    &kp LSHFT &kp W      &kp X       &kp C &kp V    &kp B       &kp N          &kp COMMA   &kp SEMI     &kp COLON      &kp EXCL    &kp ESC
-                                          &kp LGUI &mo 1       &kp SPACE       &kp RET     &mo 2        &kp RALT
+                                          &kp LGUI &mo 1       &kp SPACE      &kp RET     &mo 2        &kp RALT
                         >;
                 };
                 lower_layer {
